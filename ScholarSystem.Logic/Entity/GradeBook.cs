@@ -1,13 +1,9 @@
 ﻿using System;
-using System.Collections.Generic;
 
 namespace ScholarSystem.Logic.Entity
 {
     public class GradeBook
     {
-        private readonly List<Grades> grades =
-            new List<Grades>();
-
         public GradeBook(int id, Student student, Subject subject)
         {
             Id = id;
@@ -20,19 +16,17 @@ namespace ScholarSystem.Logic.Entity
         public int Id { get; }
         public Student Student { get; }
         public Subject Subject { get; }
-        public Grades[] Grades => grades.ToArray();
-        public int TermCount => grades.Count;
+        public float[] Grades { get; } = { 0f, 0f, 0f };
         public float Average
         {
             get
             {
                 float total = 0;
 
-                foreach (var grade in grades)
-                    total += grade.Grade;
+                foreach (var grade in Grades)
+                    total += grade;
 
-                return TermCount == 0 ? 0 :
-                    total / TermCount;
+                return total / 3;
             }
         }
     }
