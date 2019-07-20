@@ -20,10 +20,11 @@ namespace ScholarSystem.Logic.Entity
             {
                 if (value == null)
                     throw new ArgumentNullException();
-                else if (string.IsNullOrWhiteSpace(value))
+
+                if (string.IsNullOrWhiteSpace(value))
                     throw new ArgumentException();
-                else
-                    name = value.Trim();
+
+                name = value.Trim();
             }
         }
     }
