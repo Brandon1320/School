@@ -1,8 +1,8 @@
-﻿using System;
+﻿using MySql.Data.MySqlClient;
+using ScholarSystem.Logic.Entity;
+using System;
 using System.Collections.Generic;
 using System.Text;
-using MySql.Data.MySqlClient;
-using ScholarSystem.Logic.Entity;
 
 namespace ScholarSystem.Logic.Repository
 {
