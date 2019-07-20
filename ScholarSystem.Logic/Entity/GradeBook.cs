@@ -1,33 +1,32 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace ScholarSystem.Logic.Entity
 {
     public class GradeBook
     {
-        public GradeBook(int id, Student student, Subject subject)
+        private List<Term> terms = new List<Term>();
+
+        public GradeBook(int id, Student student)
         {
             Id = id;
             Student = student ??
                 throw new ArgumentNullException(nameof(student));
-            Subject = subject ??
-                throw new ArgumentNullException(nameof(subject));
         }
 
         public int Id { get; }
         public Student Student { get; }
-        public Subject Subject { get; }
-        public float[] Grades { get; } = { 0f, 0f, 0f };
-        public float Average
+        public Term[] Terms => terms.ToArray();
+
+        public float GetAverage()
         {
-            get
-            {
-                float total = 0;
+            float total = 0;
 
-                foreach (var grade in Grades)
-                    total += grade;
+            foreach (var term in Terms)
+                total += term.GetAverage();
 
-                return total / 3;
-            }
+            return terms.Count == 0 ? 0 :
+                total / terms.Count;
         }
     }
 }
