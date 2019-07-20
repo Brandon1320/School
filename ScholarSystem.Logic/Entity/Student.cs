@@ -11,5 +11,6 @@ namespace ScholarSystem.Logic.Entity
         }
 
         public int Id { get; }
+        public string Email { get; set; }
     }
 }
