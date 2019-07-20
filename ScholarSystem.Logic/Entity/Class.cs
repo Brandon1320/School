@@ -15,15 +15,8 @@ namespace ScholarSystem.Logic.Entity
                 throw new ArgumentNullException(nameof(subject));
         }
 
-        public Class(int id, Subject subject, Professor professor) :
-            this(id, subject)
-        {
-            Professor = professor;
-        }
-
         public int Id { get; }
         public Subject Subject { get; }
-        public Professor Professor { get; set; }
         public Student[] StudentList => studentList.ToArray();
     }
 }
