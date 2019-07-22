@@ -5,7 +5,7 @@ namespace ScholarSystem.Logic.Entity
     public class Student : Person
     {
         public Student(int id, string firstName, string lastName,
-            DateTime birthDate) : base(firstName, lastName, birthDate)
+            DateTime birthdate) : base(firstName, lastName, birthdate)
         {
             Id = id;
         }
