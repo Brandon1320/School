@@ -4,12 +4,9 @@ namespace ScholarSystem.Logic.Repository
 {
     public abstract class Data<T>
     {
-        protected MySqlConnection connection;
+        protected MySqlConnection sqlConnection;
 
-        protected Data()
-        {
-            connection = new MySqlConnection();
-        }
+        protected Data() { }
 
         public abstract void Save(T item);
         public abstract T Retrieve(int id);
